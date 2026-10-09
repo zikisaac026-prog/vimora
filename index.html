@@ -1,166 +1,168 @@
+
 <!DOCTYPE html>
-<html lang="en"><head>
+<html lang="en">
+<head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>VIMORA by Thinkilo</title>
 <style>
-:root{--bg:#07070d;--card:#12121c;--card2:#1a1a28;--line:#272738;--tx:#f3f3fa;--mu:#9a9ab5;--a:#8b5cf6;--b:#06b6d4;--g:linear-gradient(135deg,#8b5cf6,#06b6d4);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-html{scroll-padding-top:env(safe-area-inset-top,0px)}
+:root{--bg:#07070d;--card:#12121c;--card2:#1a1a28;--line:#272738;--tx:#f3f3fa;--mu:#9a9ab5;--a:#8b5cf6;--b:#06b6d4;--g:linear-gradient(135deg,#8b5cf6,#06b6d4)}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
 body{margin:0;background:var(--bg);color:var(--tx);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.5;background-image:radial-gradient(600px 300px at 50% -50px,#8b5cf633,transparent)}
-header{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:#07070dcc;backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-.logo{font-weight:800;letter-spacing:.22em;font-size:20px;background:var(--g);-webkit-background-clip:text;background-clip:text;color:transparent;text-decoration:none}
+header{position:sticky;top:0;z-index:9;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 16px;background:#07070dcc;backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.logo{font-weight:800;letter-spacing:.15em;font-size:20px;background:var(--g);-webkit-background-clip:text;background-clip:text;color:transparent;text-decoration:none}
 .logo small{display:block;letter-spacing:.05em;font-size:10px;font-weight:500;color:var(--mu);-webkit-text-fill-color:var(--mu)}
-nav{display:flex;gap:4px}
-nav a{color:var(--mu);text-decoration:none;padding:10px 12px;border-radius:12px;font-size:14px}
+nav{display:flex;gap:4px;flex-wrap:wrap}
+nav a{color:var(--mu);text-decoration:none;padding:9px 10px;border-radius:12px;font-size:13px}
 nav a.on{color:var(--tx);background:var(--card2)}
 .hide-m{display:none}
-@media(min-width:760px){.hide-m{display:inline-flex}.mnav{display:none!important}}
+@media(min-width:760px){.hide-m{display:flex}.mnav{display:none!important}}
 .mnav{position:fixed;bottom:0;left:0;right:0;padding-bottom:env(safe-area-inset-bottom,0px);display:flex;justify-content:space-around;background:#0c0c14f2;border-top:1px solid var(--line);z-index:9}
-.mnav a{flex:1;text-align:center;padding:12px 4px;color:var(--mu);text-decoration:none;font-size:12px}
+.mnav a{flex:1;text-align:center;padding:10px 2px;color:var(--mu);text-decoration:none;font-size:11px}
 .mnav a.on{color:var(--tx)}
 main{max-width:1000px;margin:auto;padding:20px 16px 110px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 22px;border-radius:14px;border:1px solid var(--line);background:var(--card2);color:var(--tx);font:600 15px inherit;cursor:pointer;text-decoration:none}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:0 16px;border-radius:14px;border:1px solid var(--line);background:var(--card2);color:var(--tx);font:600 14px inherit;cursor:pointer;text-decoration:none}
 .btn.p{background:var(--g);border:0;box-shadow:0 8px 30px #8b5cf655}
-.btn:active{transform:scale(.97)}.btn.sm{min-height:40px;padding:0 14px;font-size:13px}
+.btn:active{transform:scale(.97)}
+.btn.sm{min-height:38px;padding:0 12px;font-size:12px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:16px}
 h1{font-size:clamp(32px,8vw,56px);line-height:1.08;margin:.3em 0;letter-spacing:-.02em}
 h1 span,.grad{background:var(--g);-webkit-background-clip:text;background-clip:text;color:transparent}
-.mu{color:var(--mu)}.hero{text-align:center;padding:24px 0}
+h2{letter-spacing:-.02em}
+.mu{color:var(--mu)}
+.hero{text-align:center;padding:24px 0}
 textarea{width:100%;min-height:120px;resize:vertical;background:var(--card2);color:var(--tx);border:1px solid var(--line);border-radius:14px;padding:14px;font:16px inherit}
-textarea:focus{outline:2px solid var(--a)}
-.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}.row .btn{flex:1}
-.chip{padding:10px 14px;border-radius:999px;border:1px solid var(--line);background:var(--card2);color:var(--mu);font:14px inherit;cursor:pointer;min-height:42px}
+textarea:focus,input:focus,select:focus{outline:2px solid var(--a)}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.row .btn{flex:1}
+.chip{padding:9px 12px;border-radius:999px;border:1px solid var(--line);background:var(--card2);color:var(--mu);font:13px inherit;cursor:pointer;min-height:40px}
 .chip.on{background:var(--g);color:#fff;border-color:transparent}
-.lbl{font-size:13px;color:var(--mu);margin:16px 0 8px;text-transform:uppercase;letter-spacing:.08em}
+.lbl{font-size:12px;color:var(--mu);margin:16px 0 8px;text-transform:uppercase;letter-spacing:.08em}
 .chips{display:flex;gap:8px;flex-wrap:wrap}
 .badge{display:inline-block;font-size:12px;padding:4px 10px;border-radius:999px;background:#06b6d422;color:#67e8f9;border:1px solid #06b6d444}
 .badge.demo{background:#f59e0b22;color:#fbbf24;border-color:#f59e0b55}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
 .th{aspect-ratio:16/10;border-radius:14px;display:flex;align-items:flex-end;padding:10px;position:relative;overflow:hidden}
-.th::after{content:"▶";position:absolute;right:12px;top:10px;opacity:.8}
-.work{display:grid;gap:16px}@media(min-width:860px){.work{grid-template-columns:1fr 1fr}}
+.work{display:grid;gap:16px}
+@media(min-width:860px){.work{grid-template-columns:1fr 1fr}}
 .stage{display:flex;flex-direction:column;align-items:center;gap:12px}
 canvas{max-width:100%;max-height:60vh;border-radius:16px;background:#000;border:1px solid var(--line)}
-.bar{height:8px;background:var(--card2);border-radius:9px;overflow:hidden;width:100%}.bar i{display:block;height:100%;width:0;background:var(--g);transition:width .5s}
-.warn{background:#f59e0b14;border:1px solid #f59e0b44;color:#fcd34d;padding:12px 14px;border-radius:14px;font-size:14px;margin:12px 0}
+.bar{height:8px;background:var(--card2);border-radius:9px;overflow:hidden;width:100%}
+.bar i{display:block;height:100%;width:0;background:var(--g);transition:width .5s}
+.warn{background:#f59e0b14;border:1px solid #f59e0b44;color:#fcd34d;padding:12px 14px;border-radius:14px;font-size:13px;margin:12px 0}
 .toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);background:var(--card2);border:1px solid var(--line);padding:12px 18px;border-radius:14px;z-index:20;max-width:90%;font-size:14px}
-.fade{animation:f .5s ease}@keyframes f{from{opacity:0;transform:translateY(10px)}}
-.empty{text-align:center;padding:50px 10px}
-</style></head><body>
+.fade{animation:f .5s ease}
+@keyframes f{from{opacity:0;transform:translateY(10px)}}
+.empty{text-align:center;padding:40px 10px}
+.create-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+.create-head h2{margin:10px 0 4px;font-size:clamp(24px,5vw,32px)}
+.create-layout{display:grid;gap:16px}
+@media(min-width:860px){.create-layout{grid-template-columns:minmax(0,1.15fr) minmax(280px,.85fr);align-items:start}}
+.field-label{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:13px;font-weight:700;margin:18px 0 8px}
+.prompt-box textarea{min-height:155px;line-height:1.6}
+.prompt-tip,.file-note{font-size:12px;color:var(--mu);margin-top:7px}
+.prompt-examples{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}
+.prompt-examples button{font-size:12px;min-height:34px;padding:6px 10px}
+.option-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.option-block{min-width:0}
+.option-block .lbl{margin:16px 0 8px}
+.create-action{position:sticky;bottom:78px;background:#12121cf2;backdrop-filter:blur(12px);padding:10px 0 2px;margin-top:18px;z-index:3}
+.create-action .btn{width:100%;min-height:54px;font-size:16px}
+.preview-empty{min-height:260px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;border:1px dashed #44445c;border-radius:16px;background:radial-gradient(ellipse at center,#8b5cf615,transparent 70%)}
+.preview-icon{width:68px;height:68px;border-radius:20px;display:grid;place-items:center;font-size:30px;background:var(--card2);border:1px solid var(--line);margin-bottom:12px}
+@media(max-width:420px){.option-grid{grid-template-columns:1fr}.create-action{bottom:76px}}
+</style>
+</head>
+<body>
 <header>
- <a class="logo" href="#/">VIMORA<small>by Thinkilo</small></a>
- <nav class="hide-m"><a href="#/" data-r="">Home</a><a href="#/create" data-r="create">Create</a><a href="#/explore" data-r="explore">Explore</a><a href="#/videos" data-r="videos">My Videos</a><a href="#/about" data-r="about">About</a></nav>
- <a class="btn p sm" href="#/create">Create Video</a>
+<a class="logo" href="#/">VIMORA<small>by Thinkilo</small></a>
+<nav class="hide-m">
+<a href="#/" data-r="">Home</a>
+<a href="#/create" data-r="create">Create</a>
+<a href="#/explore" data-r="explore">Explore</a>
+<a href="#/videos" data-r="videos">My Videos</a>
+<a href="#/about" data-r="about">About</a>
+</nav>
+<a class="btn p sm" href="#/create">Create Video</a>
 </header>
 <main id="app"></main>
-<div class="mnav"><a href="#/" data-r="">🏠<br>Home</a><a href="#/create" data-r="create">✨<br>Create</a><a href="#/explore" data-r="explore">🔥<br>Explore</a><a href="#/videos" data-r="videos">🎬<br>Mine</a><a href="#/about" data-r="about">ℹ️<br>About</a></div>
+<div class="mnav">
+<a href="#/" data-r="">🏠<br>Home</a>
+<a href="#/create" data-r="create">✨<br>Create</a>
+<a href="#/explore" data-r="explore">🔥<br>Explore</a>
+<a href="#/videos" data-r="videos">🎬<br>Mine</a>
+<a href="#/about" data-r="about">ℹ️<br>About</a>
+</div>
 <script>
-/* ============ CONFIG ============
-   Change provider here once a real engine exists. Keys NEVER go in this file:
-   real providers call YOUR backend (/api/generate) where .env holds the keys. */
 const CONFIG={provider:"demo"};
-
-/* ============ providers/ ============ */
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 const providers={
- // Demo: simulates job + progress. Produces NO real AI video.
- demo:async(req,onStep)=>{
-  const steps=["Preparing your video...","Creating scenes...","Rendering video...","Finalizing..."];
-  for(let i=0;i<steps.length;i++){onStep(steps[i],(i+1)/steps.length);await sleep(1400)}
-  return{mode:"demo",real:false};
- },
- // FUTURE: open-source model (Wan 2.1, CogVideoX, LTX-Video via ComfyUI/Diffusers) on your own GPU server.
- local:async(req,onStep)=>{ /* const r=await fetch("/api/generate-local",{method:"POST",body:JSON.stringify(req)}); poll job status, return {mode:"local",real:true,url} */ throw new Error("Local model provider is not connected yet.")},
- // FUTURE: paid API (Runway, Kling, Veo...). Call your backend, which holds the key from .env.
- api:async(req,onStep)=>{ throw new Error("API provider is not connected yet.")}
+demo:async(req,onStep)=>{
+const steps=["Preparing your demo...","Simulating scenes...","Preparing preview...","Finishing demo..."];
+for(let i=0;i<steps.length;i++){onStep(steps[i],(i+1)/steps.length);await sleep(800)}
+return{mode:"demo",real:false}
+},
+local:async()=>{throw new Error("Local video model is not connected yet.")},
+api:async()=>{throw new Error("AI video API is not connected yet.")}
 };
-/* ============ services/ ============ */
 async function videoGenerator(req,onStep){return providers[CONFIG.provider](req,onStep)}
-/* ============ utils/ ============ */
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-const store={get(){try{return JSON.parse(localStorage.getItem("vimora.videos")||"[]")}catch(e){return[]}},set(v){try{localStorage.setItem("vimora.videos",JSON.stringify(v))}catch(e){}}};
+const store={
+get(){try{return JSON.parse(localStorage.getItem("vimora.videos")||"[]")}catch(e){return[]}},
+set(v){try{localStorage.setItem("vimora.videos",JSON.stringify(v))}catch(e){}}
+};
 const hue=s=>{let h=0;for(const c of s)h=(h*31+c.charCodeAt(0))%360;return h};
 const grad=s=>{const h=hue(s);return`linear-gradient(135deg,hsl(${h},70%,38%),hsl(${(h+70)%360},80%,22%))`};
 const toast=m=>{const t=document.createElement("div");t.className="toast";t.textContent=m;document.body.appendChild(t);setTimeout(()=>t.remove(),3200)};
-const DEMO_MSG="Video generation is currently running in demo mode. Connect an available video model to enable real AI generation.";
+const DEMO_MSG="VIMORA is in demo mode. No real AI video model is connected, so this preview is animated artwork rather than a generated video.";
 let draft={prompt:"",type:"Text to Video",dur:5,style:"Cinematic",ratio:"16:9"},raf=0;
-
-/* ============ pages/ ============ */
 const pages={
-home(){return`<div class="hero fade"><span class="badge">Free to start</span>
-<h1>Turn Your Ideas Into Videos <span>With AI</span></h1>
-<p class="mu">Create engaging videos from simple text prompts, images and ideas.</p>
-<div class="card" style="text-align:left;margin-top:20px"><textarea id="hp" placeholder="Describe the video you want to create..."></textarea>
-<div class="row"><button class="btn p" id="hg">Generate Video</button><button class="btn" id="hu">Upload Image</button></div></div>
-<div class="row" style="justify-content:center"><a class="btn p" href="#/create">Create Your First Video</a></div></div>
-<div class="warn">Heads up: Vimora is in <b>demo mode</b>. The full interface and job flow work, but real AI video needs a video model to be connected.</div>
-<div class="grid">${["Cinematic","Business","Social Media"].map(c=>`<div class="card"><div class="th" style="background:${grad(c)}"><b>${c}</b></div><p class="mu">Make ${c.toLowerCase()} videos from a single prompt.</p></div>`).join("")}</div>
-<div class="hero"><a class="btn p" href="#/create">Start Creating — It's Free</a><p class="mu" style="font-size:13px">Free to start. Real-generation limits will depend on the model connected.</p></div>`},
-create(){const d=draft,ch=(k,a)=>a.map(v=>`<button class="chip ${d[k]==v?"on":""}" data-k="${k}" data-v="${v}">${v}${k=="dur"?"s":""}</button>`).join("");
-return`<div class="work fade"><div class="card"><h2 style="margin-top:0">Create a video</h2>
-<textarea id="pr" placeholder="Example: A cinematic shot of a young African entrepreneur walking through a modern city at sunset, dramatic lighting, smooth camera movement.">${esc(d.prompt)}</textarea>
-<div class="lbl">Video type</div><div class="chips">${ch("type",["Text to Video","Image to Video"])}</div>
-${d.type=="Image to Video"?`<div class="lbl">Image</div><input type="file" id="img" accept="image/*" style="color:var(--mu)">`:""}
-<div class="lbl">Duration</div><div class="chips">${ch("dur",[5,10])}</div>
-<div class="lbl">Style</div><div class="chips">${ch("style",["Cinematic","Realistic","Cartoon","Anime","3D","Documentary","Commercial","Music Video"])}</div>
-<div class="lbl">Aspect ratio</div><div class="chips">${ch("ratio",["16:9","9:16","1:1"])}</div>
-<div class="row"><button class="btn p" id="go">Generate Video</button></div></div>
-<div class="card stage" id="stage"><span class="badge demo">Demo mode</span><p class="mu" style="text-align:center">Your video preview appears here.</p><div class="warn">${DEMO_MSG}</div></div></div>`},
-explore(){const cats=["All","Cinematic","Business","Social Media","Animation","Storytelling","Music","Education"];const ex=[];cats.slice(1).forEach(c=>["Sample A","Sample B"].forEach(n=>ex.push([c,`${c} — ${n}`])));
-return`<div class="fade"><h2>Explore</h2><div class="chips" id="cats">${cats.map((c,i)=>`<button class="chip ${i?"":"on"}" data-c="${c}">${c}</button>`).join("")}</div>
-<p class="mu" style="font-size:13px">Placeholder thumbnails — not real generated videos.</p><div class="grid" id="ex">${ex.map(e=>`<div class="card" data-c="${e[0]}"><div class="th" style="background:${grad(e[1])}"><b>${e[1]}</b></div><p class="mu" style="margin:8px 0 0;font-size:13px">Sample · demo</p></div>`).join("")}</div></div>`},
-videos(){const v=store.get();return`<div class="fade"><h2>My Videos</h2>${v.length?`<div class="grid">${v.map(x=>`<div class="card"><div class="th" style="background:${grad(x.prompt)}"><span class="badge demo">Demo</span></div><b>${esc(x.prompt.slice(0,48))}${x.prompt.length>48?"…":""}</b><p class="mu" style="margin:4px 0 10px;font-size:13px">${new Date(x.date).toLocaleDateString()} · ${x.dur}s · ${x.style}</p><div class="chips"><button class="btn sm" data-dl="${x.id}">Download</button><button class="btn sm" data-sim="${x.id}">Create similar</button><button class="btn sm" data-del="${x.id}">Delete</button></div></div>`).join("")}</div>`:`<div class="empty card"><div style="font-size:40px">🎬</div><p class="mu">Your generated videos will appear here.</p><a class="btn p" href="#/create">Create Your First Video</a></div>`}</div>`},
-about(){return`<div class="fade card"><h2 class="grad">About VIMORA</h2><p>Vimora is an AI-powered creative platform by Thinkilo designed to make video creation easier and more accessible.</p><p class="mu">Today it runs in demo mode: the interface and generation pipeline are real, but no AI model is connected yet. The provider module is built so an open-source model (Wan 2.1, CogVideoX, LTX-Video) or an API can be plugged in later without rebuilding the site.</p></div>`}
+home(){return`<div class="hero fade"><span class="badge">Free to start</span><h1>Turn Your Ideas Into Videos <span>With AI</span></h1><p class="mu">Create engaging video concepts from text prompts and images.</p><div class="card" style="text-align:left;margin-top:20px"><textarea id="hp" placeholder="Describe the video you want to create...">${esc(draft.prompt)}</textarea><div class="row"><button class="btn p" id="hg">Create Video</button><button class="btn" id="hu">Animate an Image</button></div></div><div class="warn"><b>Demo mode:</b> the current website does not generate real AI videos yet.</div></div><div class="grid"><div class="card"><h3>✍️ Text to Video</h3><p class="mu">Describe an idea and prepare a demo preview.</p></div><div class="card"><h3>🖼️ Image to Video</h3><p class="mu">Choose a reference image for the interface demo.</p></div><div class="card"><h3>🎨 Creative styles</h3><p class="mu">Explore cinematic, realistic, cartoon and more.</p></div></div>`},
+create(){
+const d=draft;
+const ch=(k,vals)=>vals.map(v=>`<button class="chip ${d[k]===v?"on":""}" data-k="${k}" data-v="${v}">${v}${k==="dur"?"s":""}</button>`).join("");
+return`<div class="fade"><div class="create-head"><div><span class="badge demo">DEMO MODE</span><h2>Create your video</h2><p class="mu" style="margin:0">Describe the scene. Customize the look. Preview the demo.</p></div><span class="mu" style="font-size:12px">VIMORA · by Thinkilo</span></div><div class="warn"><b>Demo mode:</b> this page creates an animated placeholder, not a real AI-generated video. No video model is connected.</div><div class="create-layout"><section class="card"><div class="field-label"><label for="pr">Describe your video</label><span class="mu" id="count">${d.prompt.length}/1200</span></div><div class="prompt-box"><textarea id="pr" maxlength="1200" placeholder="Example: A cinematic view of Lagos at golden hour, realistic details and smooth camera movement...">${esc(d.prompt)}</textarea><div class="prompt-tip">Tip: include your subject, location, lighting, mood and camera movement.</div></div><div class="prompt-examples"><button class="chip" data-prompt="A cinematic aerial view of Lagos at sunset, golden light reflecting on modern buildings, smooth drone movement, realistic details.">City at sunset</button><button class="chip" data-prompt="A premium product commercial for a perfume bottle on a dark reflective surface, dramatic studio lighting, slow camera push-in.">Product advert</button><button class="chip" data-prompt="A cheerful 3D animated character exploring a colorful fantasy forest, soft lighting and playful movement.">3D animation</button></div><div class="field-label">Video type</div><div class="chips">${ch("type",["Text to Video","Image to Video"])}</div>${d.type==="Image to Video"?`<div class="field-label">Reference image</div><input type="file" id="img" accept="image/*" style="color:var(--mu);max-width:100%"><p class="file-note">Image selection is for interface preview only in demo mode.</p>`:""}<div class="option-grid"><div class="option-block"><div class="lbl">Duration</div><div class="chips">${ch("dur",[5,10])}</div></div><div class="option-block"><div class="lbl">Aspect ratio</div><div class="chips">${ch("ratio",["16:9","9:16","1:1"])}</div></div></div><div class="lbl">Visual style</div><div class="chips">${ch("style",["Cinematic","Realistic","Cartoon","Anime","3D","Documentary","Commercial","Music Video"])}</div><div class="create-action"><button class="btn p" id="go">✨ Generate demo preview</button><p class="mu" style="font-size:12px;text-align:center;margin:7px 0 0">No real video file is generated in demo mode.</p></div></section><section class="card"><div style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px"><b>Preview</b><span class="badge demo">Demo only</span></div><div class="stage" id="stage"><div class="preview-empty"><div class="preview-icon">▶</div><b>Your preview will appear here</b><p class="mu" style="font-size:13px;margin:6px 0 0">Choose settings and generate a demo preview.</p></div></div><div class="warn">${DEMO_MSG}</div></section></div></div>`
+},
+explore(){const cats=["All","Cinematic","Business","Social Media","Animation","Storytelling","Music","Education"];const ex=[];cats.slice(1).forEach(c=>["Sample A","Sample B"].forEach(n=>ex.push([c,`${c} — ${n}`])));return`<div class="fade"><h2>Explore</h2><div class="chips" id="cats">${cats.map((c,i)=>`<button class="chip ${i?"":"on"}" data-c="${c}">${c}</button>`).join("")}</div><p class="mu" style="font-size:13px">Placeholder thumbnails — not real generated videos.</p><div class="grid" id="ex">${ex.map(e=>`<div class="card" data-c="${e[0]}"><div class="th" style="background:${grad(e[1])}"><b>${e[1]}</b></div><p class="mu" style="margin:8px 0 0;font-size:13px">Sample · demo</p></div>`).join("")}</div></div>`},
+videos(){const v=store.get();return`<div class="fade"><h2>My Videos</h2><div class="warn">Demo history stores job details only. It does not contain real video files.</div>${v.length?`<div class="grid">${v.map(x=>`<div class="card"><div class="th" style="background:${grad(x.prompt)}"><span class="badge demo">Demo</span></div><b>${esc(x.prompt.slice(0,48))}${x.prompt.length>48?"…":""}</b><p class="mu" style="margin:4px 0 10px;font-size:13px">${new Date(x.date).toLocaleDateString()} · ${x.dur}s · ${esc(x.style)}</p><div class="chips"><button class="btn sm" data-dl="${x.id}">Export details</button><button class="btn sm" data-sim="${x.id}">Create similar</button><button class="btn sm" data-del="${x.id}">Delete</button></div></div>`).join("")}</div>`:`<div class="empty card"><div style="font-size:40px">🎬</div><p class="mu">Your demo jobs will appear here.</p><a class="btn p" href="#/create">Create Your First Demo</a></div>`}</div>`},
+about(){return`<div class="fade card"><h2 class="grad">About VIMORA</h2><p>VIMORA is a creative platform by Thinkilo designed to make video creation easier and more accessible.</p><p class="mu">This version runs in demo mode. The interface is functional, but no AI video model is connected. A real open-source model or video API must be connected through a backend before real video generation can be offered.</p></div>`}
 };
-
-/* ============ router + events ============ */
-function route(){cancelAnimationFrame(raf);const r=(location.hash.replace(/^#\/?/,"")||"");const p=pages[r]?r:r?"home":"home";
- document.getElementById("app").innerHTML=pages[r||"home"]?pages[r||"home"]():pages.home();
- document.querySelectorAll("[data-r]").forEach(a=>a.classList.toggle("on",a.dataset.r==(pages[r]?r:"")));scrollTo(0,0)}
+function route(){cancelAnimationFrame(raf);const r=(location.hash.replace(/^#\/?/,"")||"");const p=pages[r]?r:"home";document.getElementById("app").innerHTML=pages[p]();document.querySelectorAll("[data-r]").forEach(a=>a.classList.toggle("on",a.dataset.r===p));scrollTo(0,0)}
 addEventListener("hashchange",route);route();
-
-document.addEventListener("click",e=>{const t=e.target.closest("button");if(!t)return;
- if(t.id=="hg"){draft.prompt=document.getElementById("hp").value;location.hash="#/create"}
- if(t.id=="hu"){draft.prompt=document.getElementById("hp").value;draft.type="Image to Video";location.hash="#/create"}
- if(t.dataset.k){draft.prompt=document.getElementById("pr").value;draft[t.dataset.k]=t.dataset.k=="dur"?+t.dataset.v:t.dataset.v;route()}
- if(t.dataset.c){document.querySelectorAll("#cats .chip").forEach(c=>c.classList.toggle("on",c==t));document.querySelectorAll("#ex .card").forEach(c=>c.style.display=t.dataset.c=="All"||c.dataset.c==t.dataset.c?"":"none")}
- if(t.id=="go")generate();
- if(t.dataset.del){store.set(store.get().filter(x=>x.id!=t.dataset.del));route()}
- if(t.dataset.sim){const x=store.get().find(x=>x.id==t.dataset.sim);Object.assign(draft,{prompt:x.prompt,dur:x.dur,style:x.style,ratio:x.ratio,type:"Text to Video"});location.hash="#/create"}
- if(t.dataset.dl)download(store.get().find(x=>x.id==t.dataset.dl));
+document.addEventListener("input",e=>{if(e.target.id==="pr"){const c=document.getElementById("count");if(c)c.textContent=e.target.value.length+"/1200"}});
+document.addEventListener("click",e=>{
+const t=e.target.closest("button");if(!t)return;
+if(t.dataset.prompt){draft.prompt=t.dataset.prompt;const p=document.getElementById("pr");if(p){p.value=draft.prompt;const c=document.getElementById("count");if(c)c.textContent=p.value.length+"/1200"}}
+if(t.id==="hg"){draft.prompt=document.getElementById("hp").value;location.hash="#/create"}
+if(t.id==="hu"){draft.prompt=document.getElementById("hp").value;draft.type="Image to Video";location.hash="#/create"}
+if(t.dataset.k){draft.prompt=document.getElementById("pr").value;draft[t.dataset.k]=t.dataset.k==="dur"?+t.dataset.v:t.dataset.v;route()}
+if(t.dataset.c){document.querySelectorAll("#cats .chip").forEach(c=>c.classList.toggle("on",c===t));document.querySelectorAll("#ex .card").forEach(c=>c.style.display=t.dataset.c==="All"||c.dataset.c===t.dataset.c?"":"none")}
+if(t.id==="go")generate();
+if(t.dataset.del){store.set(store.get().filter(x=>x.id!==t.dataset.del));route()}
+if(t.dataset.sim){const x=store.get().find(x=>x.id===t.dataset.sim);if(x){Object.assign(draft,{prompt:x.prompt,dur:x.dur,style:x.style,ratio:x.ratio,type:"Text to Video"});location.hash="#/create"}}
+if(t.dataset.dl){const x=store.get().find(x=>x.id===t.dataset.dl);if(x)download(x)}
 });
-
 async function generate(){
- draft.prompt=document.getElementById("pr").value.trim();
- if(draft.prompt.length<5)return toast("Please describe your video first.");
- const st=document.getElementById("stage"),req={...draft};
- st.innerHTML=`<span class="badge demo">Demo mode</span><h3 id="msg" style="margin:6px 0">Starting...</h3><div class="bar"><i id="pb"></i></div>`;
- try{
-  await videoGenerator(req,(m,p)=>{document.getElementById("msg").textContent=m;document.getElementById("pb").style.width=p*100+"%"});
-  const job={id:Date.now()+"",date:Date.now(),...req};const all=store.get();all.unshift(job);store.set(all);showPreview(job);
- }catch(err){st.innerHTML=`<div class="warn"><b>Could not generate.</b> ${esc(err.message)}</div><div class="warn">${DEMO_MSG}</div>`}
+draft.prompt=document.getElementById("pr").value.trim();
+if(draft.prompt.length<5)return toast("Please describe your video first.");
+const st=document.getElementById("stage");const req={...draft};
+st.innerHTML=`<span class="badge demo">Demo mode</span><h3 id="msg">Preparing demo...</h3><div class="bar"><i id="pb"></i></div>`;
+try{await videoGenerator(req,(m,p)=>{const msg=document.getElementById("msg"),pb=document.getElementById("pb");if(msg)msg.textContent=m;if(pb)pb.style.width=p*100+"%"});const job={id:Date.now()+"",date:Date.now(),...req};const all=store.get();all.unshift(job);store.set(all);showPreview(job)}
+catch(err){st.innerHTML=`<div class="warn"><b>Could not generate demo.</b> ${esc(err.message)}</div>`}
 }
-function dims(r){return r=="9:16"?[270,480]:r=="1:1"?[400,400]:[560,315]}
+function dims(r){return r==="9:16"?[270,480]:r==="1:1"?[400,400]:[560,315]}
 function showPreview(job){
- const st=document.getElementById("stage"),[w,h]=dims(job.ratio),hu=hue(job.prompt);let play=true,t=0;
- st.innerHTML=`<span class="badge demo">Demo preview — not a real AI video</span><canvas id="cv" width="${w*2}" height="${h*2}" style="aspect-ratio:${w}/${h}"></canvas>
- <div class="chips" style="justify-content:center"><button class="btn sm" id="pp">Pause</button><button class="btn sm" id="fs">Fullscreen</button><button class="btn sm" id="dl">Download</button><button class="btn p sm" id="again">Create another</button></div>
- <div class="warn">${DEMO_MSG}</div>`;
- const cv=document.getElementById("cv"),c=cv.getContext("2d");
- (function loop(){cancelAnimationFrame(raf);if(!document.getElementById("cv"))return;if(play)t+=.016;
-  const W=cv.width,H=cv.height;c.fillStyle=`hsl(${hu},60%,10%)`;c.fillRect(0,0,W,H);
-  for(let i=0;i<4;i++){const x=W*(.5+.4*Math.sin(t*.7+i*1.7)),y=H*(.5+.35*Math.cos(t*.5+i*2.3)),g=c.createRadialGradient(x,y,0,x,y,W*.5);
-   g.addColorStop(0,`hsla(${(hu+i*45)%360},85%,55%,.65)`);g.addColorStop(1,"transparent");c.fillStyle=g;c.fillRect(0,0,W,H)}
-  c.fillStyle="#fff";c.textAlign="center";c.font=`bold ${W/22}px sans-serif`;c.fillText("DEMO PREVIEW",W/2,H*.45);
-  c.font=`${W/32}px sans-serif`;c.globalAlpha=.8;c.fillText(job.style+" · "+job.dur+"s · "+job.ratio,W/2,H*.55);c.globalAlpha=1;
-  raf=requestAnimationFrame(loop)})();
- pp.onclick=()=>{play=!play;pp.textContent=play?"Pause":"Play"};
- fs.onclick=()=>{(cv.requestFullscreen||cv.webkitRequestFullscreen||(()=>toast("Fullscreen not supported here.")))?.call(cv)};
- dl.onclick=()=>download(job);again.onclick=()=>{draft.prompt="";route()};
+const st=document.getElementById("stage"),[w,h]=dims(job.ratio),hu=hue(job.prompt);let play=true,t=0;
+st.innerHTML=`<span class="badge demo">Demo preview — not a real AI video</span><canvas id="cv" width="${w*2}" height="${h*2}" style="aspect-ratio:${w}/${h}"></canvas><div class="chips" style="justify-content:center"><button class="btn sm" id="pp">Pause</button><button class="btn sm" id="fs">Fullscreen</button><button class="btn sm" id="dl">Export details</button><button class="btn p sm" id="again">Create another</button></div><div class="warn">${DEMO_MSG}</div>`;
+const cv=document.getElementById("cv"),c=cv.getContext("2d");
+(function loop(){cancelAnimationFrame(raf);if(!document.getElementById("cv"))return;if(play)t+=.016;const W=cv.width,H=cv.height;c.fillStyle=`hsl(${hu},60%,10%)`;c.fillRect(0,0,W,H);for(let i=0;i<4;i++){const x=W*(.5+.4*Math.sin(t*.7+i*1.7)),y=H*(.5+.35*Math.cos(t*.5+i*2.3)),g=c.createRadialGradient(x,y,0,x,y,W*.5);g.addColorStop(0,`hsla(${(hu+i*45)%360},85%,55%,.65)`);g.addColorStop(1,"transparent");c.fillStyle=g;c.fillRect(0,0,W,H)}c.fillStyle="#fff";c.textAlign="center";c.font=`bold ${W/22}px sans-serif`;c.fillText("DEMO PREVIEW",W/2,H*.45);c.font=`${W/32}px sans-serif`;c.globalAlpha=.8;c.fillText(job.style+" · "+job.dur+"s · "+job.ratio,W/2,H*.55);c.globalAlpha=1;raf=requestAnimationFrame(loop)})();
+document.getElementById("pp").onclick=()=>{play=!play;document.getElementById("pp").textContent=play?"Pause":"Play"};
+document.getElementById("fs").onclick=()=>{if(cv.requestFullscreen)cv.requestFullscreen();else toast("Fullscreen is not supported in this browser.")};
+document.getElementById("dl").onclick=()=>download(job);
+document.getElementById("again").onclick=()=>{draft.prompt="";route()};
 }
-function download(job){ // Demo has no video file, so we honestly export the job details.
- const b=new Blob([JSON.stringify({note:"Demo job. No video file was generated.",...job},null,2)],{type:"application/json"});
- const a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="vimora-demo-job.json";a.click();
- toast("Demo mode: no real video file exists, so job details were saved instead.")}
-</script></body></html>
+function download(job){const b=new Blob([JSON.stringify({note:"Demo job only. No video file was generated.",...job},null,2)],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="vimora-demo-job.json";a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);toast("Demo details exported. No real video file exists yet.")}
+</script>
+</body>
+</html>
