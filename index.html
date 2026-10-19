@@ -104,8 +104,78 @@ for(let i=0;i<steps.length;i++){onStep(steps[i],(i+1)/steps.length);await sleep(
 return{mode:"demo",real:false}
 },
 local:async()=>{throw new Error("Local video model is not connected yet.")},
-api:async()=>{throw new Error("AI video API is not connected yet.")}
-};
+api: async (req, onStep) => {
+  const API_BASE = "https://winter-hill-d5aa.zikisaac026.workers.dev";
+
+  if (!req.prompt || !req.prompt.trim()) {
+    throw new Error("Please enter a video prompt.");
+  }
+
+  onStep?.("Connecting to the AI video service...");
+
+  const response = await fetch(`${API_BASE}/generate`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      prompt: req.prompt,
+      duration: Number(req.duration) || 2,
+      aspect_ratio: req.aspect_ratio || "9:16",
+      style: req.style || "cinematic"
+    })
+  });
+
+  const job = await response.json();
+
+  if (!response.ok) {
+    throw new Error(job.error || job.message || "Could not submit the video job.");
+  }
+
+  if (!job.event_id) {
+    throw new Error(job.error || "The AI service did not return a job ID.");
+  }
+
+  onStep?.("AI job submitted. Waiting for your video...");
+
+  for (let i = 0; i < 120; i++) {
+    await new Promise(resolve => setTimeout(resolve, 5000));
+
+    const resultResponse = await fetch(
+      `${API_BASE}/result?event_id=${encodeURIComponent(job.event_id)}`
+    );
+
+    const result = await resultResponse.json();
+
+    if (!resultResponse.ok) {
+      throw new Error(result.error || "Could not check video progress.");
+    }
+
+    if (result.status === "complete") {
+      const videoUrl = result.video_url || result.url;
+
+      if (!videoUrl) {
+        throw new Error("The AI finished, but no video URL was returned.");
+      }
+
+      return {
+        mode: "real",
+        real: true,
+        video_url: videoUrl.startsWith("http")
+          ? videoUrl
+          : `${API_BASE}${videoUrl}`
+      };
+    }
+
+    if (result.status === "error" || result.error) {
+      throw new Error(result.error || "The AI video job failed.");
+    }
+
+    onStep?.(`Generating your video... (${i + 1}/120)`);
+  }
+
+  throw new Error("Video generation is taking too long. Please try again later.");
+  }
 async function videoGenerator(req,onStep){return providers[CONFIG.provider](req,onStep)}
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const store={
